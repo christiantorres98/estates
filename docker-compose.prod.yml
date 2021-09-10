@@ -11,7 +11,7 @@ services:
 
   django:
     build: ./src
-    command: gunicorn estates.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn estates_backend.wsgi:application --bind 0.0.0.0:8000
     depends_on:
       - db_postgres
     env_file: .env
@@ -21,7 +21,7 @@ services:
       - 8000
 
     environment:
-      - DJANGO_SETTINGS_MODULE=estates.settings.prod
+      - DJANGO_SETTINGS_MODULE=estates_backend.settings.prod
 
   nginx:
     image: nginx:alpine

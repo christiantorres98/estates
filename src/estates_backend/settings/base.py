@@ -31,7 +31,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'estates.urls'
+ROOT_URLCONF = 'estates_backend.urls'
 
 TEMPLATES = [
     {
@@ -49,7 +49,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'estates.wsgi.application'
+WSGI_APPLICATION = 'estates_backend.wsgi.application'
 
 DATABASES = {
     'default': {

@@ -18,6 +18,6 @@ services:
     volumes:
       - ./src:/src
     environment:
-      - DJANGO_SETTINGS_MODULE=estates.settings.dev
+      - DJANGO_SETTINGS_MODULE=estates_backend.settings.dev
     ports:
       - '8000:8000'
