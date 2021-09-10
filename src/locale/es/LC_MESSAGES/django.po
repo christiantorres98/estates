@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-10 18:39-0500\n"
+"PO-Revision-Date: 2021-09-10 18:40-0456\n"
+"Last-Translator: b'  <>'\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.4\n"
+
+#: estates/apps.py:7
+msgid "estates"
+msgstr "predios"
+
+#: estates/models.py:8
+msgid "RURAL"
+msgstr "RURAL"
+
+#: estates/models.py:9
+msgid "URBAN"
+msgstr "URBANO"
+
+#: estates/models.py:17
+msgid "name"
+msgstr "nombre"
+
+#: estates/models.py:20
+msgid "fill in this field if the type of estate is rural"
+msgstr "llenar este campo si el tipo de predio es rural"
+
+#: estates/models.py:24
+msgid "address"
+msgstr "dirección "
+
+#: estates/models.py:27
+msgid "fill in this field if the type of estate is urban"
+msgstr "llenar este campo si el tipo de predio es urbano"
+
+#: estates/models.py:31
+msgid "type"
+msgstr "tipo"
+
+#: estates/models.py:37
+msgid "catastral itentification"
+msgstr "cédula catastral"
+
+#: estates/models.py:42 estates/models.py:57
+msgid "Estate"
+msgstr "Predio"
+
+#: estates/models.py:43
+msgid "Estates"
+msgstr "Predios"
+
+#: estates/models.py:52 users/models.py:33
+msgid "User"
+msgstr "Usuario"
+
+#: estates/models.py:62
+msgid "Estates of user"
+msgstr "Predios de usuario"
+
+#: estates/models.py:63
+msgid "Estates of users"
+msgstr "Predios de usuarios"
+
+#: estates_backend/settings/base.py:94
+msgid "Spanish"
+msgstr "Español"
+
+#: estates_backend/settings/base.py:95
+msgid "English"
+msgstr "Inglés"
+
+#: users/apps.py:7
+msgid "users"
+msgstr "usuarios"
+
+#: users/models.py:7
+msgid "COMPANY"
+msgstr "EMPRESA"
+
+#: users/models.py:8
+msgid "USER"
+msgstr "USUARIO"
+
+#: users/models.py:17
+msgid "document"
+msgstr "documento"
+
+#: users/models.py:22
+msgid "phone"
+msgstr "teléfono"
+
+#: users/models.py:27
+msgid "Role"
+msgstr "Rol"
+
+#: users/models.py:34
+msgid "Users"
+msgstr "Usuarios"

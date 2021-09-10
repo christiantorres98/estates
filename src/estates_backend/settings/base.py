@@ -12,12 +12,17 @@ SECRET_KEY = os.environ['SECRET_KEY']
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'commons',
+    'rosetta',
+    'users.apps.UsersConfig',
+    'estates.apps.EstatesConfig'
 ]
 
 MIDDLEWARE = [
@@ -101,5 +106,6 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
-
 ROSETTA_SHOW_AT_ADMIN_PANEL = True
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
