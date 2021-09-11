@@ -34,6 +34,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'crum.CurrentRequestUserMiddleware',
+
 ]
 
 ROOT_URLCONF = 'estates_backend.urls'
@@ -109,3 +111,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 ROSETTA_SHOW_AT_ADMIN_PANEL = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

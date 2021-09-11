@@ -1,0 +1,13 @@
+{% load static %}
+<script src="{% static 'assets/sweetalert2.all.min.js' %}"></script>
+{% if messages %}
+  <script>
+      {% for message in messages %}
+          Swal.fire({
+              title: 'Atención',
+              text: '{{ message }}',
+              icon: '{{ message.tags }}'
+          });
+      {% endfor %}
+  </script>
+{% endif %}

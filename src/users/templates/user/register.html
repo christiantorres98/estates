@@ -1,0 +1,58 @@
+{% extends 'index/base.html' %}
+{% block content %}
+  <!-- Content
+  ============================================= -->
+  <section id="content">
+    <div class="content-wrap">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h3>¡Regístrate ahora!</h3>
+            <form class="row mb-0" action="{{ request.get_full_path }}" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+                {% for field in form_user.visible_fields %}
+                  <div class="col-md-6 form-group">
+                    <label style="width: 100%;" for="{{ field.auto_id }}">
+                      {{ field.label }} {% if field.field.required %}<small>*</small>{% endif %}
+                    </label>
+                    {{ field }}
+                    {% if field.errors %}
+                      <div class="alert alert-danger mt-2">
+                        {% for error in field.errors %}
+                          {{ error }}<br/>
+                        {% endfor %}
+                      </div>
+                    {% endif %}
+                    {% if field.help_text %}
+                      <small>{{ field.help_text }}</small>
+                    {% endif %}
+                  </div>
+                {% endfor %}
+              {% for field in form.visible_fields %}
+                <div class="col-md-6 form-group">
+                  <label style="width: 100%;" for="{{ field.auto_id }}">
+                    {{ field.label }} {% if field.field.required %}<small>*</small>{% endif %}
+                  </label>
+                  {{ field }}
+                  {% if field.errors %}
+                    <div class="alert alert-danger mt-2">
+                      {% for error in field.errors %}
+                        {{ error }}<br/>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                  {% if field.help_text %}
+                    <small>{{ field.help_text }}</small>
+                  {% endif %}
+                </div>
+              {% endfor %}
+              <div class="col-12">
+                <button type="submit" name="jobs-application-submit" class="btn btn-secondary">Registrarse</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- #content end -->
+{% endblock %}

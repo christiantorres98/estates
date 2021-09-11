@@ -12,6 +12,12 @@ class Estate(models.Model):
         (RURAL, RURAL),
         (URBAN, URBAN)
     )
+    type = models.CharField(
+        max_length=20,
+        verbose_name=_('type'),
+        choices=TYPE,
+        default=RURAL
+    )
     name = models.CharField(
         max_length=100,
         verbose_name=_('name'),
@@ -25,12 +31,6 @@ class Estate(models.Model):
         blank=True,
         null=True,
         help_text=_('fill in this field if the type of estate is urban')
-    )
-    type = models.CharField(
-        max_length=20,
-        verbose_name=_('type'),
-        choices=TYPE,
-        default=RURAL
     )
     cadastral_id = models.CharField(
         max_length=20,
@@ -46,7 +46,7 @@ class Estate(models.Model):
         return f'{self.cadastral_id}'
 
 
-class UsersEstates(models.Model):
+class UserEstate(models.Model):
     user = models.ForeignKey(
         User,
         verbose_name=_('User'),

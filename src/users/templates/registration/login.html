@@ -1,0 +1,38 @@
+{% extends 'index/base.html' %}
+{% block content %}
+  <!-- Content
+  ============================================= -->
+  <section id="content">
+    <div class="content-wrap">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h3>Inicia sesión</h3>
+            {% if form.errors %}
+              <div class="alert alert-danger">
+                Usuario y/o contraseña invalidas, intenta nuevamente.
+              </div>
+            {% endif %}
+            <form class="row mb-0" action="{{ request.get_full_path }}" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="col-md-12 form-group">
+                <label for="username">Usuario *</label>
+                <input type="text" name="username" id="username" class="form-control">
+              </div>
+              <div class="col-md-12 form-group">
+                <label for="username">Contraseña *</label>
+                <input type="password" name="password" id="password" class="form-control">
+              </div>
+              <div class="col-12">
+                <span>No tienes cuenta, <a href="{% url 'users:user-register' %}">regístrate aquí</a></span>
+              </div>
+              <div class="col-12 mt-2">
+                <button type="submit" name="jobs-application-submit" class="btn btn-secondary">Ingresar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- #content end -->
+{% endblock %}

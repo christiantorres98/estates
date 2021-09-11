@@ -1,0 +1,14 @@
+/* ----------------------------------------------------------------
+	Custom CSS
+
+	Add all your Custom Styled CSS here for New Styles or
+	Overwriting Default Theme Styles for Better Handling Updates
+-----------------------------------------------------------------*/
+
+
+.creator-img {
+    object-fit: cover;
+    height: 50px;
+    margin-right: 5px;
+}
+

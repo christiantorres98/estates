@@ -19,11 +19,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('jet/', include('jet.urls', 'jet')),
     path('admin/', admin.site.urls),
     path('rosetta/', include('rosetta.urls')),
+    path('', include('estates.urls', namespace='estates')),
+    path('', include('users.urls', namespace='users')),
     prefix_default_language=True
 )
 

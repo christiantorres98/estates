@@ -1,0 +1,95 @@
+{% extends 'index/base.html' %}
+{% load static %}
+{% load core_tags %}
+{% block content %}
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="row"
+             style="margin-top: 25px;margin-bottom: 15px; justify-content: space-between; padding-left: 15px; padding-right: 15px">
+          <h2>Todos los predios de usuarios</h2>
+        </div>
+        <div class="row" style="padding: 15px">
+          <form action="" style="width: 100%;">
+            <input type="text" name="search" class="form-control" placeholder="Buscar"
+                   style="display: initial; width: 40%">
+            <select name="estate_type" id="estate_type" class="form-control" style="display: initial; width: 40%">>
+              <option value="a"></option>
+            </select>
+          </form>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                  <th>Usuario</th>
+                  <th>Nombre predio</th>
+                  <th>Dirección</th>
+                  <th>Tipo predio</th>
+                  <th>Cedula Catastral</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for object in object_list %}
+                  <tr>
+                    <td>{{ object.user.user }}</td>
+                    <td>{{ object.estate.name }}</td>
+                    <td>{{ object.estate.address }}</td>
+                    <td>{{ object.estate.type }}</td>
+                    <td>{{ object.estate.cadastral_id }}</td>
+
+                  </tr>
+                {% empty %}
+                  <tr>
+                    <td colspan="4" class="text-center">
+                      No se encontraron resultados <br/>
+                      <a href="{{ request.path }}">Ver todos los registros</a>
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="row no-gutters">
+          <div class="col-12">
+            <!-- ======================== Pagination ===================== -->
+            <ul class="pagination mt-5 pagination-circle justify-content-center">
+              {% if page_obj.has_previous %}
+                <li class="page-item">
+                  <a class="page-link"
+                     href="
+                         {{ request.path }}{{ request|get_different_parameters:'page' }}page={{ page_obj.previous_page_number }}">
+                    <i class="icon-angle-left"></i>
+                  </a>
+                </li>
+              {% endif %}
+              {% for p in pages %}
+                <li class="page-item {% if p == current_page %}active{% endif %}">
+                  <a class="page-link"
+                     href="{{ request.path }}{{ request|get_different_parameters:'page' }}page={{ p }}">
+                    {{ p }}
+                  </a>
+                </li>
+              {% endfor %}
+              {% if page_obj.has_next %}
+                <li class="page-item">
+                  <a class="page-link"
+                     href="{{ request.path }}{{ request|get_different_parameters:'page' }}{% comment %}
+                     {% endcomment %}page={{ page_obj.next_page_number }}">
+                    <i class="icon-angle-right"></i>
+                  </a>
+                </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+{% endblock %}
