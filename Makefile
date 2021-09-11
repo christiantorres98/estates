@@ -36,13 +36,13 @@ test:
 
 
 prod-up:
-	docker-compose -f docker-compose-prod.yml up
+	docker-compose -f docker-compose.prod.yml up
 
 prod-run:
-	docker-compose -f docker-compose-prod.yml up -d
+	docker-compose -f docker-compose.prod.yml up -d
 
 prod-build:
-	docker-compose -f docker-compose-prod.yml build
+	docker-compose -f docker-compose.prod.yml build
 
 prod-app:
 	docker-compose -f docker-compose.prod.yml exec django python manage.py startapp $(APP_NAME)
