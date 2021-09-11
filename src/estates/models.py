@@ -32,7 +32,7 @@ class Estate(models.Model):
         null=True,
         help_text=_('fill in this field if the type of estate is urban')
     )
-    cadastral_id = models.CharField(
+    catastral_id = models.CharField(
         max_length=20,
         verbose_name=_('catastral itentification'),
         unique=True
@@ -43,7 +43,7 @@ class Estate(models.Model):
         verbose_name_plural = _("Estates")
 
     def __str__(self):
-        return f'{self.cadastral_id}'
+        return f'{self.catastral_id}'
 
 
 class UserEstate(models.Model):

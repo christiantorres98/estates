@@ -11,12 +11,27 @@
           <h2>Todos los predios de usuarios</h2>
         </div>
         <div class="row" style="padding: 15px">
-          <form action="" style="width: 100%;">
+          <form style="width: 100%;"
+                action="{% if url_search %}{{ url_search }}{% else %}{% url 'users:index' %}{% endif %}"
+                method="get">
             <input type="text" name="search" class="form-control" placeholder="Buscar"
+                   value="{{ request.GET.search }}"
                    style="display: initial; width: 40%">
-            <select name="estate_type" id="estate_type" class="form-control" style="display: initial; width: 40%">>
-              <option value="a"></option>
+            <select name="estate_type" id="estate_type" class="form-control"
+                    style="display: initial; width: 30%">
+                <option value="------">-------</option>
+                <option value="RURAL"
+                    {% if request.GET.estate_type == "RURAL" %}selected{% endif %}>
+                  RURAL</option>
+                <option value="URBANO"
+                {% if request.GET.estate_type == "URBANO" %}selected{% endif %}
+                >URBANO</option>
             </select>
+            <div style="display: initial">
+              <button
+                  class="button button-3d button-rounded button ">Buscar
+              </button>
+            </div>
           </form>
         </div>
         <div class="row">
@@ -35,16 +50,16 @@
                 <tbody>
                 {% for object in object_list %}
                   <tr>
-                    <td>{{ object.user.user }}</td>
+                    <td>{{ object.user.user.get_full_name }} - {{ object.user.document }}</td>
                     <td>{{ object.estate.name }}</td>
                     <td>{{ object.estate.address }}</td>
                     <td>{{ object.estate.type }}</td>
-                    <td>{{ object.estate.cadastral_id }}</td>
+                    <td>{{ object.estate.catastral_id }}</td>
 
                   </tr>
                 {% empty %}
                   <tr>
-                    <td colspan="4" class="text-center">
+                    <td colspan="5" class="text-center">
                       No se encontraron resultados <br/>
                       <a href="{{ request.path }}">Ver todos los registros</a>
                     </td>
@@ -63,6 +78,12 @@
                 <li class="page-item">
                   <a class="page-link"
                      href="
+
+
+
+
+
+
                          {{ request.path }}{{ request|get_different_parameters:'page' }}page={{ page_obj.previous_page_number }}">
                     <i class="icon-angle-left"></i>
                   </a>

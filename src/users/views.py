@@ -8,7 +8,7 @@ from django.views.generic import CreateView, FormView, ListView, TemplateView
 from django.db.models import Q
 
 from commons.utils import PaginatedListView
-from estates.models import UserEstate
+from estates.models import UserEstate, Estate
 from users.forms import UserModelForm, UserDjangoCreationForm, UserDjangoModelForm
 from users.mixings import ValidAuthorMixin
 from users.models import User
@@ -24,21 +24,23 @@ class IndexView(PaginatedListView):
         search = self.request.GET.get('search')
         estate_type = self.request.GET.get('estate_type')
         if search:
-            queryset = queryset.filter(Q(user__document=search) |
-                                       Q(user__user__first_name=search) |
-                                       Q(user__user__username=search) |
-                                       Q(user__user__last_name=search) |
-                                       Q(estate__catastral_id=search) |
-                                       Q(estate__name=search) |
-                                       Q(estate__address=search)
+            queryset = queryset.filter(Q(user__document__icontains=search) |
+                                       Q(user__user__first_name__icontains=search) |
+                                       Q(user__user__username__icontains=search) |
+                                       Q(user__user__last_name__icontains=search) |
+                                       Q(estate__catastral_id__icontains=search) |
+                                       Q(estate__name__icontains=search) |
+                                       Q(estate__address__icontains=search)
                                        )
-        if estate_type:
+        if estate_type and estate_type != "------":
+            print("NO ES")
             queryset = queryset.filter(estate__type=estate_type)
         return queryset
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         context['url_search'] = self.request.get_full_path()
+        context['estate_type'] = Estate.TYPE
         return context
 
 

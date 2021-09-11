@@ -33,14 +33,13 @@
                     <td>{{ object.estate.name }}</td>
                     <td>{{ object.estate.address }}</td>
                     <td>{{ object.estate.type }}</td>
-                    <td>{{ object.estate.cadastral_id }}</td>
+                    <td>{{ object.estate.catastral_id }}</td>
 
                   </tr>
                 {% empty %}
                   <tr>
                     <td colspan="4" class="text-center">
                       No se encontraron resultados <br/>
-                      <a href="{{ request.path }}">Ver todos los registros</a>
                     </td>
                   </tr>
                 {% endfor %}
